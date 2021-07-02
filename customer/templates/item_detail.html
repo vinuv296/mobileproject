@@ -1,0 +1,31 @@
+{%extends 'index.html'%}
+
+{% block body-block %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <center><img src="{{mobile.image.url}}" class="card-img-top" alt="..." style="height:200px;width:200px;"></center>
+                <div class="card-body">
+
+                    <h5 class="card-title">{{mobile.mobile_name}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Brand Name:{{mobile.brand}}</li>
+                    <li class="list-group-item">Price:{{mobile.price}}</li>
+                </ul>
+
+                <div class="card-header">
+                Specifications
+                 </div>
+                 <li class="list-group-item">{{mobile.spec}}</li>
+                <a href="{% url 'addtocart' mobile.id %}" class="btn btn-success">Add to cart</a>
+
+            </div>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{% endblock %}

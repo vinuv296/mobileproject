@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/Bankproject/.idea/Bankproject.iml" filepath="$USER_HOME$/Bankproject/.idea/Bankproject.iml" />
+      <module fileurl="file://$USER_HOME$/Bookcbv/.idea/Bookcbv.iml" filepath="$USER_HOME$/Bookcbv/.idea/Bookcbv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mobileproject.iml" filepath="$PROJECT_DIR$/.idea/mobileproject.iml" />
+      <module fileurl="file://$USER_HOME$/todoproject/.idea/todoproject.iml" filepath="$USER_HOME$/todoproject/.idea/todoproject.iml" />
+    </modules>
+  </component>
+</project>

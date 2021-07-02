@@ -1,0 +1,20 @@
+{%extends 'index.html'%}
+
+{% block body-block %}
+
+<div class="row">
+    {% for mobile in mobiles %}
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <center><img src="{{mobile.image.url}}" class="card-img-top" alt="..." style="height:150px;width:150px;"></center>
+            <div class="card-body">
+                <h5 class="card-title">{{mobile.mobile_name}}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="{% url 'item_details' mobile.id %}" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

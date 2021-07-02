@@ -1,0 +1,23 @@
+
+{%extends 'index.html'%}
+
+{% block body-block %}
+
+<div class="row">
+    {% for ordered_item in ordered_items %}
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <center><img src="{{ordered_item.product.image.url}}" class="card-img-top" alt="..." style="height:150px;width:150px;"></center>
+            <div class="card-body">
+                <h5 class="card-title">{{ordered_item.product.mobile_name}}</h5>
+                <p class="card-text">Price:{{ordered_item.product.price}}</p>
+                <p class="card-text">status:{{ordered_item.status}}</p>
+
+                <a href="{% url 'cancel_order' ordered_item.id %}" class="btn btn-danger">Cancel order</a>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

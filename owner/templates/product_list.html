@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>Product Name</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Spec</th>
+        <th>image</th>
+        <th>Edit/View/Delete</th>
+
+    </tr>
+    {% for mobile in mobiles %}
+    <tr>
+        <td>{{mobile.mobile_name}}</td>
+        <td>{{mobile.brand}}</td>
+        <td>{{mobile.price}}</td>
+        <td>{{mobile.spec}}</td>
+        <td><img src="{{mobile.image.url}}" alt="" width="100" height="100"></td>
+        <td><a href="{%url 'change' mobile.id %}" class="btn btn-primary">Edit</a>
+            <a href="{%url 'productdetails' mobile.id %}" class=" btn btn-success">View</a>
+            <a href="{%url 'delete' mobile.id %}" class="btn btn-danger">Delete</a></td>
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

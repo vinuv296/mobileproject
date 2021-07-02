@@ -1,0 +1,113 @@
+{%extends 'index.html'%}
+
+{% block body-block %}
+
+<!--<div class="row">-->
+<!--    {% for cart_item in cart_items %}-->
+<!--    <div class="col-3">-->
+<!--        <div class="card" style="width: 18rem;">-->
+<!--            <center><img src="{{cart_item.product.image.url}}" class="card-img-top" alt="..." style="height:150px;width:150px;"></center>-->
+<!--            <div class="card-body">-->
+<!--                <h5 class="card-title">{{cart_item.product.mobile_name}}</h5>-->
+<!--                <p class="card-text">Price:{{cart_item.product.price}}</p>-->
+<!--                <p class="card-text">status:{{cart_item.status}}</p>-->
+<!--                <a href="{% url 'removecart' cart_item.id %}" class="btn btn-danger">Remove</a>-->
+<!--                <a href="{% url 'placeorder' cart_item.product.id cart_item.id %}" class="btn btn-primary">Place Order</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--    {{total}}-->
+<!--</div>-->
+
+
+<html>
+
+<body>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-8 pl-3 pt-3">
+
+            <table class="table table-hover border bg-white">
+                <thead>
+                <tr>
+                    <th><h6><b> Product Details </b></h6></th>
+                    <th><h6><b> Price</h6> <b></th>
+                    <th><h6><b> Action <b></h6></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for cart_item in cart_items %}
+                <tr>
+                    <td>
+                        <div class="row">
+
+                            <div class="col-lg-2 Product-img">
+                                <img src="{{cart_item.product.image.url}}" alt="..." class="img-responsive" style="height:100px;width:100px;">
+                            </div>
+                            <div class="col-lg-10">
+                                <h5 STYLE="margin:0px 20px"><b> {{cart_item.product.mobile_name}} </b></h5>
+                                <p STYLE="margin:0px 20px">{{cart_item.product.spec}}</p>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td><strong>{{cart_item.product.price}}</strong></td>
+
+
+                    <td>
+
+                        <a href="{% url 'placeorder' cart_item.product.id cart_item.id %}" class="btn btn-info"><span
+                                class="glyphicon glyphicon-shopping-cart"> </span>Order</a>
+                    </td>
+                    <td> <a href="{% url 'removecart' cart_item.id %}" class="btn btn-danger">Remove</a></td>
+                </tr>
+
+
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+
+
+
+<div class="col-md-3 p-3" >
+        <div class="card mb-3">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Summary</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+
+                    <p class="mb-0">You have {% if cart_count%}{{cart_count}}{% endif %} items in your cart</p>
+
+
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                <div>
+                  <strong>Total amount</strong>
+                  <strong>
+                    <p class="mb-0"></p>
+                  </strong>
+                </div>
+                <span><strong>{{total}}</strong></span>
+              </li>
+            </ul>
+
+
+          </div>
+        </div>
+      </div>
+</div>
+
+
+</body>
+</html>
+
+{% endblock %}
+
